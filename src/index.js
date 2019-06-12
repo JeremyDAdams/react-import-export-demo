@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import foods from './foods';
+import { choice, remove } from './helpers';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//Randomly draw a fruit from the array
+let fruit = choice(foods);
+//Log the message “I’d like one RANDOMFRUIT, please.”
+console.log(`I’d like one ${fruit}, please.`);
+//Log the message “Here you go: RANDOMFRUIT”
+console.log(`Here you go: ${fruit}`);
+//Log the message “Delicious! May I have another?”
+console.log("Delicious! May I have another?");
+//Remove the fruit from the array of fruits
+let remaining = remove(foods, fruit);
+//Log the message “I’m sorry, we’re all out. We have FRUITSLEFT left.”
+console.log(`I’m sorry, we’re all out. We have ${remaining.length} other foods left.`)
